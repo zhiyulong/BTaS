@@ -1,0 +1,8 @@
+{
+    "operation": "INSERT",
+    "item": {
+        "id": "#E01",
+        "eventName": "Testing Event 01",
+        "time": "2023-09"
+    }
+}

@@ -1,0 +1,68 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Lambda application that calls the Lambda API.
+Resources:
+  events:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: build/distributions/app.zip
+      Handler: btas.handler.EventLambda
+      Runtime: java11
+      Description: Java function
+      MemorySize: 2048
+      Timeout: 10
+      # Function's execution role
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambda_ReadOnlyAccess
+        - AWSXrayWriteOnlyAccess
+        - AWSLambdaVPCAccessExecutionRole
+      Tracing: Active
+  artists:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: build/distributions/app.zip
+      Handler: btas.handler.ArtistLambda
+      Runtime: java11
+      Description: Java function
+      MemorySize: 2048
+      Timeout: 10
+      # Function's execution role
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambda_ReadOnlyAccess
+        - AWSXrayWriteOnlyAccess
+        - AWSLambdaVPCAccessExecutionRole
+      Tracing: Active
+  funds:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: build/distributions/app.zip
+      Handler: btas.handler.FundLambda
+      Runtime: java11
+      Description: Java function
+      MemorySize: 2048
+      Timeout: 10
+      # Function's execution role
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambda_ReadOnlyAccess
+        - AWSXrayWriteOnlyAccess
+        - AWSLambdaVPCAccessExecutionRole
+      Tracing: Active
+  merch:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: build/distributions/app.zip
+      Handler: btas.handler.MerchLambda
+      Runtime: java11
+      Description: Java function
+      MemorySize: 2048
+      Timeout: 10
+      # Function's execution role
+      Policies:
+        - AWSLambdaBasicExecutionRole
+        - AWSLambda_ReadOnlyAccess
+        - AWSXrayWriteOnlyAccess
+        - AWSLambdaVPCAccessExecutionRole
+      Tracing: Active
